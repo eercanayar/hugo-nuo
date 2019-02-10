@@ -52,10 +52,10 @@
 
     @media screen and (max-width: $tablet) {
       position: static;
-      width: 100vw;
       height: 56.25vw;
       border-radius: 0;
-      margin: 0 -1rem;
+      margin:0 -0.5rem;
+      width: 95vw;
 
       & + .post-summary {
         padding-right: 0;
