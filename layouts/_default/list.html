@@ -8,9 +8,15 @@
 {{ define "main" }}
   {{ partial "header.html" . }}
   <section class="main post-list">
+    {{ if eq .Data.Singular "tag" }}
+    <header class="post-header">
+      <h1 class="post-title">Posts tagged with {{ .Data.Term }}</h1>
+    </header>
+    {{ else }}
     <header class="list-header offscreen">
       <h2 class="list-label">Posts List</h2>
     </header>
+    {{ end }}
     {{ $paginator := .Paginate (where .Data.Pages "Type" "post") (index .Site.Params "paginate" | default 10) }}
     {{ if ne $paginator.TotalPages 0 }}
       {{ range $paginator.Pages.ByDate.Reverse }}
