@@ -1,7 +1,7 @@
 {{ define "title" }}
-  {{ if eq .Data.Singular "tag" }}Tag → {{ .Data.Term }}
-  {{ else if eq .Data.Singular "category" }}Category → {{ .Data.Term }}
-  {{ else }}Posts{{ end }}
+  {{ if eq .Data.Singular "tag" }}{{ .Data.Term }} içerikleri
+  {{ else if eq .Data.Singular "category" }}{{ .Data.Term }} kategorisi içerikleri
+  {{ else }}Yazılar{{ end }}
   {{ if isset .Site.Params "seotitle" }} | {{ .Site.Params.seotitle }}{{ else }} | {{ .Site.Title }}{{ end }}
 {{ end }}
 
@@ -10,7 +10,11 @@
   <section class="main post-list">
     {{ if eq .Data.Singular "tag" }}
     <header class="post-header">
-      <h1 class="post-title">Posts tagged with {{ .Data.Term }}</h1>
+      <h1 class="post-title">{{ .Data.Term }} ile etiketlenmiş içerikler</h1>
+    </header>
+    {{ else if eq .Data.Singular "category" }}
+    <header class="post-header">
+      <h1 class="post-title">{{ .Data.Term }} kategorisi içerikleri</h1>
     </header>
     {{ else }}
     <header class="list-header offscreen">

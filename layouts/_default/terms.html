@@ -9,11 +9,25 @@
       <h1 class="post-title">{{ .Title }}</h1>
     </header>
     <div class="tags-cloud">
-      {{ $data := .Data }}
-      {{ range $key, $value := $data.Terms.ByCount }}
-        {{ $weight := $value.Count }}
-        <a href="/etiket/{{ $value.Name | urlize }}/" class="tag-{{ if eq $weight 1 }}s{{ else if eq $weight 2 }}m{{ else if eq $weight 4 }}l{{ else if eq $weight 8 }}xl{{ else }}xxl{{ end }}">{{ $value.Name }}</a>
-      {{ end }}
+
+      {{ if eq .Data.Singular "tag" }}
+        {{ $data := .Data }}
+        {{ range $key, $value := $data.Terms.ByCount }}
+          {{ $weight := $value.Count }}
+          <a href="/etiket/{{ $value.Name | urlize }}/" class="tag-{{ if eq $weight 1 }}s{{ else if eq $weight 2 }}m{{ else if eq $weight 4 }}l{{ else if eq $weight 8 }}xl{{ else }}xxl{{ end }}">{{ $value.Name }}</a>
+        {{ end }}
+      {{ else if eq .Data.Singular "category" }}
+        {{ $data := .Data }}
+        {{ range $key, $value := $data.Terms.ByCount }}
+          {{ $weight := $value.Count }}
+          <a href="/kategori/{{ $value.Name | urlize }}/" class="tag-{{ if eq $weight 1 }}s{{ else if eq $weight 2 }}m{{ else if eq $weight 4 }}l{{ else if eq $weight 8 }}xl{{ else }}xxl{{ end }}">{{ $value.Name }}</a>
+        {{ end }}
+      {{ else }}Nothing to show.{{ end }}
+
+
+
+
+
     </div>
   </section>
   {{ partial "footer.html" . }}
