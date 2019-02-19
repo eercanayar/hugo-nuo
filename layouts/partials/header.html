@@ -1,7 +1,7 @@
 {{- $avatar := resources.Get (.Site.Params.avatar | default "images/avatar.png") -}}
 
 <header class="site-header">
-  <a href="/hakkimda" class="less-opacity"><img class="avatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Site.Title }}"></a>
+  <a href="/about/" class="less-opacity"><img class="avatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Site.Title }}"></a>
   {{  if eq .Kind "home" }}
   <a href="/"><h1 class="title">{{ .Site.Title }}</h1></a>
   {{ else }}
