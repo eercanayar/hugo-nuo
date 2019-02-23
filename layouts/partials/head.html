@@ -30,7 +30,6 @@
   <!-- Page Author & Description -->
   {{ with .Params.author }}<meta name="author" content="{{ . }}">{{ end }}
   <meta name="description" content="{{ .Summary | plainify }}">
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
   <!-- Twitter Card -->
   {{ if isset .Params "cover" }}
