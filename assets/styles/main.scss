@@ -14,3 +14,24 @@
 @import 'partials/misc';
 @import 'partials/terms';
 @import 'partials/resume';
+
+header.site-header a
+{
+    opacity: 1;
+}
+
+header.site-header h2 {
+    opacity: .7;
+}
+
+header.site-header h2:hover {
+    opacity: 1;
+}
+
+header.site-header li {
+    opacity: .7;
+}
+
+header.site-header li:hover {
+    opacity: 1;
+}

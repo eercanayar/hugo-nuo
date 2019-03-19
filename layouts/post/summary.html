@@ -4,10 +4,10 @@
     <p class="post-meta">@{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }} · {{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</p>
   </header>
   {{ if isset .Params "cover" }}
-    <img class="post-cover" src="{{ .Params.cover }}" alt="{{ .Title }}" lazyload="on">
+    <a href="{{ .Permalink }}" class="post-cover-link"><img class="post-cover" src="{{ .Params.cover }}" alt="{{ .Title }}" lazyload="on"></a>
   {{ end }}
   <p class="post-summary">{{ .Summary | plainify | htmlUnescape }}</p>
   <footer class="post-footer">
-    <a class="read-more" href="{{ .Permalink }}">Read More →</a>
+    <a class="read-more" href="{{ .Permalink }}">Devamı →</a>
   </footer>
 </article>
