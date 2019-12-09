@@ -64,10 +64,3 @@ window.addEventListener('scroll', function() {
   }
   ticking = true;
 });
-
-// Smooth Scroll to top when click toTopBtn
-var scroll = new SmoothScroll('a[href*="#"]');
-toTopBtn &&
-  toTopBtn.addEventListener('click', function() {
-    scroll.animateScroll(0);
-  });

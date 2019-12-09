@@ -17,6 +17,13 @@
   <!-- Polyfill for old browsers -->
   {{ partial "polyfill.html" . }}
 
+<script type="text/javascript">
+function scrollToTop() {
+  if(window.scrollY!=0){
+    window.scrollTo(0,0);
+  }
+}
+</script>
 </head>
   <body>
     {{ if ne .Kind "404" }}
@@ -27,7 +34,11 @@
       {{- $commentIcon = "fas fa-comment-dots" -}}
     {{- end -}}
     <div class="suspension">
+<<<<<<< HEAD
       <a role="button" aria-label="Go to top" title="Go to top" class="to-top is-hide"><span class="{{ $upIcon }}" aria-hidden="true"></span></a>
+=======
+      <a role="button" onclick="scrollToTop()" aria-label="Go to top" title="Go to top" class="to-top is-hide"><span class="icon icon-up" aria-hidden="true"></span></a>
+>>>>>>> service-worker and smooth-scrool removed
       {{ if and (eq .Type "post") (eq .Kind "page") }}
         {{ if .Site.Params.changyan }}
 	<a role="button" aria-label="Go to comments" title="Go to comments" class="to-comment" href="#SOHUCS"><span class="{{ $commentIcon }}" aria-hidden="true"></span></a>
